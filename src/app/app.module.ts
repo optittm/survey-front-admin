@@ -1,3 +1,5 @@
+import { SurveyAddComponent } from './components/survey-add/survey-add.component';
+import { SurveyListComponent } from './components/survey-list/survey-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,9 +13,11 @@ import { MaterialModule } from './material.module';
 import { NetworkService } from './services/network.service';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { FeatureAddComponent } from './components/feature-add/feature-add.component';
+import { DataSetService } from './services/data-set.service';
+import { FeatureListComponent } from './components/feature-list/feature-list.component';
 
 @NgModule({
-  declarations: [AppComponent, ProjectListComponent, FeatureAddComponent],
+  declarations: [AppComponent, ProjectListComponent, FeatureListComponent, FeatureAddComponent, SurveyListComponent, SurveyAddComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -24,7 +28,7 @@ import { FeatureAddComponent } from './components/feature-add/feature-add.compon
     MatIconModule,
     NgbModule,
   ],
-  providers: [NetworkService],
+  providers: [NetworkService, DataSetService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

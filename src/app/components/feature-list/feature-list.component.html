@@ -1,1 +1,19 @@
-<p>feature-list works!</p>
+<div class="row">
+  <h2>Liste des features :</h2>
+  <mat-card *ngFor="let feature of features" class="col-md-4">
+    <mat-card-header>
+      <mat-card-title>{{ feature.name }}</mat-card-title>
+      <mat-card-subtitle>{{ feature.id }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Ressource : {{ feature.resource }}</p>
+      <p>Nom du projet : {{ feature.project.name }}</p>
+      <p>Description : {{ feature.description }}</p>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="updateFeature(feature)">Modifier</button>
+      <button mat-button (click)="deleteFeature(feature)">Supprimer</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

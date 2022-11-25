@@ -1,1 +1,26 @@
-<p>survey-list works!</p>
+<div class="row" *ngIf="dataSetService.selectedProject && dataSetService.selectedFeature">
+  <h2>Liste des surveyRules :</h2>
+  <mat-card *ngFor="let surveyRule of surveyRules" class="col-md-4">
+    <mat-card-header>
+      <mat-card-title>
+        <span>
+          is_activated :
+          <span mat-card-avatar class="bi bi-check" *ngIf="surveyRule.is_activated"></span>
+          <span mat-card-avatar class="bi bi-x" *ngIf="!surveyRule.is_activated"></span>
+        </span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span>
+          is_activated_on_feature :
+          <span mat-card-avatar class="bi bi-check" *ngIf="surveyRule.is_activated_on_feature"></span>
+          <span mat-card-avatar class="bi bi-x" *ngIf="!surveyRule.is_activated_on_feature"></span>
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>delay_before_reanswer : {{ surveyRule.delay_before_reanswer }}</p>
+      <p>delay_to_answer : {{ surveyRule.delay_to_answer }}</p>
+      <p>ratio_display : {{ surveyRule.ratio_display }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

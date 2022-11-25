@@ -1,17 +1,16 @@
-<div class="d-flex flex-column align-items-start">
+<div class="d-flex flex-column align-items-start" *ngIf="dataSetService.selectedProject" [formGroup]="form">
+  <h3>Créer une nouvelle feature pour le projet : {{ dataSetService.selectedProject.name }}</h3>
   <mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
+    <mat-label>Nom</mat-label>
+    <input matInput #name formControlName="name">
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Select</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
+    <mat-label>Description</mat-label>
+    <textarea matInput #description formControlName="description"></textarea>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
+    <mat-label>Ressource</mat-label>
+    <input matInput #resource formControlName="resource">
   </mat-form-field>
+  <button mat-raised-button (click)="createFeature()">Créer</button>
 </div>
